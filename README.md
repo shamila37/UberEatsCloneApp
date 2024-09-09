@@ -44,6 +44,11 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
+## My Dependencies
+
+npm install --save react-native-vector-icons
+npm install react-native-google-places-autocomplete --save
+
 ## Congratulations! :tada:
 
 You've successfully run React Native App. :partying_face:
