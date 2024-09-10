@@ -2,26 +2,26 @@ import { View, Text, Image } from 'react-native'
 import React from 'react'
 
 
-// const yelprestaurantinfo = {
-//   name: "Farmhouse Kitchen Thai Cusine",
-//   image: "https://wallpapers.com/images/high/al-fresco-restaurant-in-piazza-dei-signori-8iwhkfq54vjav6kw.webp",
-//   price: "$$",
-//   reviews: "1500+",
-//   rating: 4.5,
-//   categories: [{title: "Thai"}, {title: "Comfort Food"}, {title: "Cofee"}, {title: "Ice Cream"}],
-// };
+const yelpRestaurantInfo = {
+  name: "Farmhouse Kitchen Thai Cusine",
+  image: "https://wallpapers.com/images/high/al-fresco-restaurant-in-piazza-dei-signori-8iwhkfq54vjav6kw.webp",
+  price: "$$",
+  reviews: "1500+",
+  rating: 4.5,
+  categories: [{title: "Thai"}, {title: "Comfort Food"}, {title: "Coffee"}, {title: "Ice Cream"}],
+};
 
-const image = "https://wallpapers.com/images/featured/restaurant-background-2ez77umko2vj5w02.jpg";
-const name = 'Farmhouse Kitchen Thai Cusine'
-const description = 'Thai . Comfort Food . $$ . 4 stars (2913+)';
+// const image = "https://wallpapers.com/images/high/al-fresco-restaurant-in-piazza-dei-signori-8iwhkfq54vjav6kw.webp";
+// const name = 'Farmhouse Kitchen Thai Cusine'
+// const description = 'Thai . Comfort Food . $$ . 4 stars (2913+)';
 
 export default function About(props: any) {
 
-    // const {name, image, price, reviews, rating, categories} = props.route.params;
+    const {name, image, price, reviews, rating, categories} = yelpRestaurantInfo;
   
-    // const formattedCategories = categories.map((cat: { title: any; }) => cat.title).join(" . ");
+    const formattedCategories = categories.map((cat: { title: any; }) => cat.title).join(" . ");
   
-    // const description = `${formattedCategories} ${price ? " . " + price : ""} . ticket . ${rating} star (${reviews})`;
+    const description = `${formattedCategories} ${price ? " . " + price : ""} . ticket . ${rating} star (${reviews})`;
   
     return (
       <View>
