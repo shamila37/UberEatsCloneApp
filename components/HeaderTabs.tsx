@@ -1,23 +1,23 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 
-export default function HeaderTab() {
-  const [activeTab, setActiveTab] = useState("Delivery");
+export default function HeaderTab(props: any) {
+  // const [activeTab, setActiveTab] = useState("Delivery");
   return (
     <View style={{ flexDirection: "row", alignSelf: "center"}}>
       <HeaderButton 
         text="Delivery" 
         btnColor="black" 
         textColor="white" 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab}
+        activeTab={props.activeTab}
+        setActiveTab={props.setActiveTab}
       />
       <HeaderButton 
         text="Pickup" 
         btnColor="white" 
         textColor="black" 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab}
+        activeTab={props.activeTab}
+        setActiveTab={props.setActiveTab}
       />
     </View>
   )

@@ -1,21 +1,32 @@
-import { View, Text, SafeAreaView } from 'react-native'
-import React from 'react'
-import HeaderTab from '../components/HeaderTabs'
+import { View, Text, SafeAreaView, ScrollView } from 'react-native'
+import React, { useState } from 'react'
 import HeaderTabs from '../components/HeaderTabs'
 import SearchBar from '../components/SearchBar';
 import Categories from '../components/Categories';
+import RestaurantItems from '../components/RestaurantItems';
+// import RestaurantItems, {localRestaurants,} from '../components/RestaurantItems';
 
+const YELP_API_KEY = "";
 export default function Home() {
+  // const [restaurantData, setRestaurantData] = React.useState(localRestaurants);
+  // const getRestaurantFromYelp = () => {
+
+  // }
+  const [activeTab, setActiveTab] = useState("Delivery");
   return (
     <SafeAreaView style={{backgroundColor: "#eee", flex: 1}}>
         <View style={{
             backgroundColor: "white",
             padding: 15
         }}>
-          <HeaderTabs/>
+          <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
           <SearchBar/>
         </View>
-        <Categories/>
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <Categories/>
+            {/* <RestaurantItems restaurantData={restaurantData}/> */}
+            <RestaurantItems/>
+        </ScrollView>
     </SafeAreaView>
   );
 }
