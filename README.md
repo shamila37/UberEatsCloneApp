@@ -50,6 +50,11 @@ npm install --save react-native-vector-icons
 npm install react-native-google-places-autocomplete --save
 npm install react-native-elements --save
 npm install @rneui/themed @rneui/base
+npm install @react-navigation/native
+npm install @react-navigation/stack
+npm install --save react-native-gesture-handler
+npm install react-native-screens
+npm install react-native-safe-area-context
 
 ## Congratulations! :tada:
 

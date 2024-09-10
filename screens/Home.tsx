@@ -6,14 +6,9 @@ import Categories from '../components/home/Categories';
 import RestaurantItems from '../components/home/RestaurantItems';
 import BottomTabs from '../components/home/BottomTabs';
 import { Divider } from '@rneui/base/dist/Divider/Divider';
-// import RestaurantItems, {localRestaurants,} from '../components/RestaurantItems';
 
-const YELP_API_KEY = "";
-export default function Home() {
-  // const [restaurantData, setRestaurantData] = React.useState(localRestaurants);
-  // const getRestaurantFromYelp = () => {
-
-  // }
+export default function Home({navigation, ...props}) {
+  
   const [activeTab, setActiveTab] = useState("Delivery");
   return (
     <SafeAreaView style={{backgroundColor: "#eee", flex: 1}}>
@@ -27,7 +22,7 @@ export default function Home() {
         <ScrollView showsVerticalScrollIndicator={false}>
             <Categories/>
             {/* <RestaurantItems restaurantData={restaurantData}/> */}
-            <RestaurantItems/>
+            <RestaurantItems navigation={navigation} />
         </ScrollView>
 
         <Divider width={1}/>
