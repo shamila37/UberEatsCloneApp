@@ -4,6 +4,8 @@ import HeaderTabs from '../components/HeaderTabs'
 import SearchBar from '../components/SearchBar';
 import Categories from '../components/Categories';
 import RestaurantItems from '../components/RestaurantItems';
+import BottomTabs from '../components/BottomTabs';
+import { Divider } from '@rneui/base/dist/Divider/Divider';
 // import RestaurantItems, {localRestaurants,} from '../components/RestaurantItems';
 
 const YELP_API_KEY = "";
@@ -27,6 +29,9 @@ export default function Home() {
             {/* <RestaurantItems restaurantData={restaurantData}/> */}
             <RestaurantItems/>
         </ScrollView>
+
+        <Divider width={1}/>
+        <BottomTabs/>
     </SafeAreaView>
   );
 }

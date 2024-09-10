@@ -48,6 +48,8 @@ This is one way to run your app — you can also run it directly from within And
 
 npm install --save react-native-vector-icons
 npm install react-native-google-places-autocomplete --save
+npm install react-native-elements --save
+npm install @rneui/themed @rneui/base
 
 ## Congratulations! :tada:
 

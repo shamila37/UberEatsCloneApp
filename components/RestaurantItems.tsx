@@ -51,7 +51,7 @@ export default function RestaurantItems(props: any) {
         {/* {props.restaurantData.map((restaurent, index) => ( */}
         {localRestaurents.map((restaurent, index) => (
             <View 
-            // key={index}
+            key={index}
             style={{
                 marginTop: 10, 
                 padding: 15, 
