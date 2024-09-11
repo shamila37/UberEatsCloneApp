@@ -59,6 +59,8 @@ npm install react-native-bouncy-checkbox
 npm install tslib
 npm install react-redux
 npm install redux react-redux
+npm install react-native-reanimated
+npm install reanimated-bottom-sheet
 
 ## Congratulations! :tada:
 
