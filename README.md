@@ -57,6 +57,8 @@ npm install react-native-screens
 npm install react-native-safe-area-context
 npm install react-native-bouncy-checkbox
 npm install tslib
+npm install react-redux
+npm install redux react-redux
 
 ## Congratulations! :tada:
 
