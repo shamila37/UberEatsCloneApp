@@ -80,7 +80,7 @@ const foods = [
   },
 ];
 
-export default function RestaurantDetail({route, navigation}) {
+export default function RestaurantDetail({route, navigation}: any) {
   return (
     <View>
       <About route={route}/>

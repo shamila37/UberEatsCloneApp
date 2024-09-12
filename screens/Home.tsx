@@ -7,7 +7,7 @@ import RestaurantItems from '../components/home/RestaurantItems';
 import BottomTabs from '../components/home/BottomTabs';
 import { Divider } from '@rneui/base/dist/Divider/Divider';
 
-export default function Home({navigation, ...props}) {
+export default function Home({navigation, ...props}: any) {
   
   const [activeTab, setActiveTab] = useState("Delivery");
   return (

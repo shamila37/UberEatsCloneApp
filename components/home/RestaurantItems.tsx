@@ -45,7 +45,7 @@ const localRestaurants = [
     },
 ];
 
-export default function RestaurantItems({navigation, ...props}) {
+export default function RestaurantItems({navigation, ...props}: any) {
     return (
         <>
         {localRestaurants.map((restaurant, index) => (

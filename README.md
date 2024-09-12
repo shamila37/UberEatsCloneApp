@@ -46,6 +46,7 @@ This is one way to run your app — you can also run it directly from within And
 
 ## My Dependencies
 
+```bash
 npm install --save react-native-vector-icons
 npm install react-native-google-places-autocomplete --save
 npm install react-native-elements --save
@@ -65,6 +66,7 @@ npm install --save firebase
 npm install @react-native-firebase/firestore
 npm install lottie-react-native --save
 npm i lottie-react-native
+```
 
 ## Congratulations! :tada:
 

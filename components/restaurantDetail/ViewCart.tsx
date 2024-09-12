@@ -8,14 +8,14 @@ import firestore, { firebase } from '@react-native-firebase/firestore';
 import LottieView from 'lottie-react-native';
 
 
-export default function ViewCart({navigation}) {
+export default function ViewCart({navigation}: any) {
 
     const [modalVisible, setModalVisible] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const {items, restaurantName} = useSelector((state) => state.cartReducer.selectedItems);
+    const {items, restaurantName} = useSelector((state: any) => state.cartReducer.selectedItems);
 
-    const total = items.map((item => Number(item.price.replace('$', '')))).reduce((prev, curr) => prev + curr, 0);
+    const total = items.map(((item: { price: string; }) => Number(item.price.replace('$', '')))).reduce((prev: any, curr: any) => prev + curr, 0);
 
     const totalUSD = total.toLocaleString("en", {
         style: "currency",
@@ -79,7 +79,7 @@ export default function ViewCart({navigation}) {
                 <View style={styles.modalContainer}>
                     <View style={styles.modalCheckoutContainer}>
                         <Text style={styles.restaurantName}>{restaurantName}</Text>
-                        {items.map((item, index) => (
+                        {items.map((item: any, index: any) => (
                             <OrderItem key={index} item={item} />
                         ))}
                         <View style={styles.subtotalContainer}>

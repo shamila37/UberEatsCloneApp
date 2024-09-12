@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export default function MenuItem({restaurantName, foods, hideCheckbox, marginLeft}) {
+export default function MenuItem({restaurantName, foods, hideCheckbox, marginLeft}: any) {
 
     const dispatch = useDispatch();
     
@@ -32,15 +32,15 @@ export default function MenuItem({restaurantName, foods, hideCheckbox, marginLef
         });
 
     const cartItems = useSelector(
-       (state) => state.cartReducer.selectedItems.items
+       (state: any) => state.cartReducer.selectedItems.items
     );
 
-    const isFoodInCart = (food, cartItem) => 
-        Boolean(cartItems.find((item) => item.title == food.title));
+    const isFoodInCart = (food: any, cartItem: any) => 
+        Boolean(cartItems.find((item: any) => item.title == food.title));
         
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-    {foods.map((food, index) => (
+    {foods.map((food: any, index: any) => (
         <View key={index}>
             <View style={styles.menuItemStyle}>
                 { hideCheckbox ? (
@@ -73,7 +73,7 @@ const FoodInfo = (props: any) => (
     </View>
 )
 
-const FoodImage =({marginLeft, ...props}) => (
+const FoodImage =({marginLeft, ...props}: any) => (
     <View>
         <Image 
             source={{uri: props.food.image}} 

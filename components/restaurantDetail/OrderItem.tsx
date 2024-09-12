@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function OrderItem({item}) {
+export default function OrderItem({item}: any) {
     const {title, price} = item;
   return (
     <View style={{
