@@ -61,6 +61,10 @@ npm install react-redux
 npm install redux react-redux
 npm install react-native-reanimated
 npm install reanimated-bottom-sheet
+npm install --save firebase
+npm install @react-native-firebase/firestore
+npm install lottie-react-native --save
+npm i lottie-react-native
 
 ## Congratulations! :tada:
 

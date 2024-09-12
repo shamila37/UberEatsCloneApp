@@ -2,10 +2,16 @@ import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native'
 import React, { useState} from 'react'
 import { useSelector } from 'react-redux';
 import OrderItem from './OrderItem';
+// import firebase from '../../firebase';
+// import firebase from '@react-native-firebase/app';
+import firestore, { firebase } from '@react-native-firebase/firestore';
+import LottieView from 'lottie-react-native';
 
-export default function ViewCart() {
+
+export default function ViewCart({navigation}) {
 
     const [modalVisible, setModalVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const {items, restaurantName} = useSelector((state) => state.cartReducer.selectedItems);
 
@@ -15,6 +21,21 @@ export default function ViewCart() {
         style: "currency",
         currency: "USD",
     });
+
+    const addOrderToFireBase = () => {
+        setLoading(true);
+    //     const db = firebase.firestore();
+    //     db.collection("orders").add({
+    //         items: items,
+    //         restaurantName: restaurantName,
+    //         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    //     }).then(() => {
+            setTimeout(() => {
+                setLoading(false);
+                navigation.navigate("OrderCompleted");
+            }, 2500);
+    //     });       
+    };
 
     const styles = StyleSheet.create({
         modalContainer: {
@@ -76,9 +97,10 @@ export default function ViewCart() {
                                     width: 300,
                                     position: "relative",
                                 }}
-                                // onPress={() => {
-                                //     addOrderToFireBase();
-                                // }}
+                                onPress={() => {
+                                    addOrderToFireBase();
+                                    setModalVisible(false);
+                                }}
                             >
                                 <Text style={{ color: "white", fontSize: 20 }}>Checkout</Text>
                                 <Text style={{ 
@@ -95,77 +117,86 @@ export default function ViewCart() {
                     </View>
                 </View>
             </>
-
-            // <View style={{
-            //     flex: 1,
-            //     justifyContent: "center",
-            //     alignItems: "center",
-            //     marginTop: 30,
-            // }}>
-            //     <View style={{
-            //         backgroundColor: "black",
-            //         padding: 10,
-            //         borderRadius: 30,
-            //         width: 150,
-            //         alignItems: "center",
-            //     }}>
-            //         <TouchableOpacity onPress={() => setModalVisible(false)}>
-            //         <Text style={{color: "white"}}>Checkout</Text>
-            //         </TouchableOpacity>
-            //     </View>
-            // </View>
         )
     };
 
 
-        return (
+    return (
         <>
-        <Modal animationType='slide' visible={modalVisible} transparent={true} onRequestClose={() => setModalVisible(false)}>
-            {checkoutModalContext()}
-        </Modal>
-        {total ? (
-        <View style={{
-            flex: 1,
-            alignItems:"center",
-            justifyContent: "center",
-            flexDirection: "row",
-            position: "absolute",
-            bottom: 330,
-            zIndex: 999,
-        }}> 
-            <View style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                width: "100%",
-            }}>
-                <TouchableOpacity style={{
-                    marginTop: 20,
-                    backgroundColor: "black",
-                    alignItems: "center",
-                    justifyContent: "flex-end",
-                    padding: 13,
-                    borderRadius: 30,
-                    width: 300,
-                    position: "relative",
-                }}
-                onPress={() => setModalVisible(true)}
-                >
-                    <Text style={{color: "white", fontSize: 20, marginRight: 30}}>View Cart</Text>
-                    <Text style={{ 
-                        position: "absolute", 
-                        right: 20, 
-                        color: "white", 
-                        fontSize: 15,
-                        top: 17,
+            <Modal 
+                animationType='slide' 
+                visible={modalVisible} 
+                transparent={true} 
+                onRequestClose={() => setModalVisible(false)}
+            >
+                {checkoutModalContext()}
+            </Modal>
+
+            {total ? (
+                <View style={{
+                    flex: 1,
+                    alignItems:"center",
+                    justifyContent: "center",
+                    flexDirection: "row",
+                    position: "absolute",
+                    bottom: 330,
+                    zIndex: 999,
+                }}> 
+                    <View style={{
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        width: "100%",
                     }}>
-                        {total ? totalUSD : ""}
-                    </Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-        ) : (
-            <></>
-        )}
+                        <TouchableOpacity style={{
+                            marginTop: 20,
+                            backgroundColor: "black",
+                            alignItems: "center",
+                            justifyContent: "flex-end",
+                            padding: 13,
+                            borderRadius: 30,
+                            width: 300,
+                            position: "relative",
+                        }}
+                        onPress={() => setModalVisible(true)}
+                        >
+                            <Text style={{color: "white", fontSize: 20, marginRight: 30}}>View Cart</Text>
+                            <Text style={{ 
+                                position: "absolute", 
+                                right: 20, 
+                                color: "white", 
+                                fontSize: 15,
+                                top: 17,
+                            }}>
+                                {total ? totalUSD : ""}
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            ) : (
+                <></>
+            )}
+
+            {loading ? (
+            <View style={{
+                backgroundColor: 'black',
+                position: 'absolute',
+                opacity: 0.6,
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: "100%",
+                width: "100%",
+            }}
+            >
+                <LottieView 
+                    style={{ width: 150, height: 150, marginTop: -350}}
+                    source={require('../../assets/animations/scanner.json')}
+                    autoPlay 
+                    speed={3}
+                />
+            </View> 
+            ) : (
+                <></>
+            )}
         </>
     )
-    }
+}
